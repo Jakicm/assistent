@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link type="image/png" sizes="32x32" rel="icon" href="./img/icons8-website-32.png">
+    <title>Assistent</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <br>
+
+        <nav class="navbar navbar-dark navbar-expand-md bg-primary justify-content-between">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link pl-0" href="#">Početna</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Posao
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" target="_blank"
+                                    href="http://aplikacija.kontrolaradnika.com/index.xhtml">Radno Vreme</a>
+                                <a class="dropdown-item" target="_blank" href="https://srv6.smartivo.com">Praćenje</a>
+                                <a class="dropdown-item" target="_blank" href="./pages/sifre.html">Šifre</a>
+                                <a class="dropdown-item" target="_blank" href="./pages/jmbg.html">JMBG</a>
+
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Lično
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" target="_blank" href="./pages/costs.html">Troškovi</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kripto
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://explorer.karlsencoin.com/addresses/karlsen:qrt7qs0uh3p9dmxxdculmz4ndtczlwu6465wvavnc04lgqvm4rzqgqrljvesc?page=1">KarlsenExplorer</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://karlsen.herominers.com/#">HeroMiners</a>
+                                <a class="dropdown-item" target="_blank" href="https://www.hashrate.no">Hashrate</a>
+                                <a class="dropdown-item" target="_blank" href="https://whattomine.com">WhatToMine</a>
+                                <a class="dropdown-item" target="_blank" href="https://the.hiveos.farm/">HiveOn</a>
+                                <a class="dropdown-item" target="_blank" href="https://coincheckup.com">CoinCheckUp</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://coinmarketcap.com/">CoinMarket</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://www.coingecko.com/en/portfolios/portfolio_overview">CionGecko</a>
+                                <a class="dropdown-item" target="_blank" href="https://wallet.karlsencoin.com">K-Wallet</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tools
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" target="_blank" href="./pages/calc.html">Calculator</a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+
+
+        <h2 class="text-center">Notes Manager</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="input-group mb-3">
+                    <input type="text" id="noteInput" class="form-control" placeholder="Add a new note">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" onclick="addNote()">Add Note</button>
+                    </div>
+                </div>
+                <ul id="noteList" class="list-group">
+                    <!-- Notes will be added here dynamically -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="./scripts/notes.js"></script>
+    </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

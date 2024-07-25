@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMBG Validator and Generator</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>JMBG Generator</h2>
+        <div class="form-group">
+            <label for="jmbg-input">JMBG:</label>
+            <input type="text" id="jmbg-input" class="form-control" maxlength="13">
+        </div>
+        <button id="check" class="btn btn-primary">Proveri JMBG</button>
+        <button id="generate" class="btn btn-success">Generiši JMBG</button>
+        <p id="msg" class="mt-3"></p>
+        <div id="osoba" class="mt-3"></div>
+    </div>
+
+    <script>
+        (function () {
+            const jmbgHTML = document.getElementById("jmbg-input");
+            const check = document.getElementById("check");
+            const generate = document.getElementById("generate");
+            const msg = document.getElementById("msg");
+            const osoba = document.getElementById("osoba");
+
+            let jmbg, dan, mesec, godina, regija, jedinstveniBroj, kontrolna, ispravnaKontrolna;
+
+            function Person(date, month, year, region, sex) {
+                this.date = date;
+                this.month = month;
+                this.year = year;
+                this.region = region;
+                this.sex = sex;
+            }
+
+            function setPerson() {
+                godina = "1" + godina;
+                const regions = {
+                    10: "Banja Luka",
+                    11: "Bihać",
+                    12: "Doboj",
+                    13: "Goražde",
+                    14: "Livno",
+                    15: "Mostar",
+                    16: "Prijedor",
+                    17: "Sarajevo",
+                    18: "Tuzla",
+                    19: "Zenica",
+                    20: "Crna Gora",
+                    21: "Podgorica",
+                    26: "Nikšić",
+                    29: "Pljevlja",
+                    30: "Osijek, Slavonija region",
+                    31: "Bjelovar, Virovitica, Koprivnica, Pakrac, Podravina region",
+                    32: "Varaždin, Međimurje region",
+                    33: "Zagreb",
+                    34: "Karlovac",
+                    35: "Gospić, Lika region",
+                    36: "Rijeka, Pula, Istra and Primorje",
+                    37: "Sisak, Banovina region",
+                    38: "Split, Zadar, Dubrovnik, Dalmacija region",
+                    39: "Hrvatska",
+                    41: "Bitolj",
+                    42: "Kumanovo",
+                    43: "Ohrid",
+                    44: "Prilep",
+                    45: "Skoplje",
+                    46: "Strumica",
+                    47: "Tetovo",
+                    48: "Veles",
+                    49: "Štip",
+                    50: "Slovenija",
+                    70: "Srbija",
+                    71: "Beograd",
+                    72: "Šumadija i Pomoravlje",
+                    73: "Niš",
+                    74: "Južna Morava",
+                    75: "Zaječar",
+                    76: "Podunavlje",
+                    77: "Podrinje i Kolubara",
+                    78: "Kraljevo",
+                    79: "Užice",
+                    80: "Novi Sad",
+                    81: "Sombor",
+                    82: "Subotica",
+                    83: "Vojvodina",
+                    84: "Vojvodina",
+                    85: "Zrenjanin",
+                    86: "Pančevo",
+                    87: "Kikinda",
+                    88: "Ruma",
+                    89: "Sremska Mitrovica",
+                    90: "Kosovo i Metohija",
+                    91: "Priština",
+                    92: "Kosovska Mitrovica",
+                    93: "Peć",
+                    94: "Đakovica",
+                    95: "Prizren",
+                    96: "Kosovsko Pomoravski okrug",
+                    97: "Kosovo i Metohija",
+                    98: "Kosovo i Metohija",
+                    99: "Kosovo i Metohija"
+                };
+                regija = regions[regija] || "Unknown";
+
+                if (jedinstveniBroj < 500) {
+                    jedinstveniBroj = "Muški";
+                } else {
+                    jedinstveniBroj = "Ženski";
+                }
+                const newPerson = new Person(dan, mesec, godina, regija, jedinstveniBroj);
+
+                osoba.innerHTML = `Datum rodjenja: ${dan}.${mesec}.${godina}<br> Mesto rodjenja: ${regija} <br> Pol: ${jedinstveniBroj}`;
+            }
+
+            function checkJMBG() {
+                if (dan < 1 || dan > 31) {
+                    msg.innerHTML = "Neispravan dan rodjenja";
+                } else if (mesec < 1 || mesec > 12) {
+                    msg.innerHTML = "Neispravan mesec rodjenja";
+                } else if (godina < 900 || godina > 2017) {
+                    msg.innerHTML = "Neispravna godina rodjenja";
+                } else if ((regija > 50 && regija < 70) || regija > 99) {
+                    msg.innerHTML = "Neispravna regija rodjenja";
+                } else if (jedinstveniBroj > 999) {
+                    msg.innerHTML = "Neispravno unet pol!"; 
+                } else if (kontrolna !== ispravnaKontrolna) {
+                    msg.innerHTML = "Neispravan kontrolni broj";
+                } else {
+                    msg.innerHTML = "Ispravan maticni broj";
+                    setPerson();
+                }
+            }
+
+            function parseJMBG() {
+                let jmbg = jmbgHTML.value.split("");
+                if (jmbg.length === 13) {
+                    dan = Number(jmbg[0] + jmbg[1]);
+                    mesec = Number(jmbg[2] + jmbg[3]);
+                    godina = Number(jmbg[4] + jmbg[5] + jmbg[6]);
+                    regija = Number(jmbg[7] + jmbg[8]);
+                    jedinstveniBroj = Number(jmbg[9] + jmbg[10] + jmbg[11]);
+                    kontrolna = Number(jmbg[12]);
+                    ispravnaKontrolna =
+                        11 -
+                        (7 * (Number(jmbg[0]) + Number(jmbg[6])) +
+                            6 * (Number(jmbg[1]) + Number(jmbg[7])) +
+                            5 * (Number(jmbg[2]) + Number(jmbg[8])) +
+                            4 * (Number(jmbg[3]) + Number(jmbg[9])) +
+                            3 * (Number(jmbg[4]) + Number(jmbg[10])) +
+                            2 * (Number(jmbg[5]) + Number(jmbg[11]))) %
+                        11;
+                    if (ispravnaKontrolna > 9) ispravnaKontrolna = 0;
+                    checkJMBG();
+                } else {
+                    msg.innerHTML = "JMBG mora imati 13 cifara!";
+                }
+            }
+
+            function generateRandomJMBG() {
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
+                // Generate random date
+                const day = getRandomInt(1, 31).toString().padStart(2, '0');
+                const month = getRandomInt(1, 12).toString().padStart(2, '0');
+                const year = getRandomInt(900, 999).toString();
+                const fullYear = "1" + year;
+
+                // Generate random region
+                const region = getRandomInt(0, 99).toString().padStart(2, '0');
+
+                // Generate random unique number
+                const uniqueNumber = getRandomInt(0, 999).toString().padStart(3, '0');
+
+                // Calculate control number
+                const jmbg = day + month + year + region + uniqueNumber;
+                const controlNumber = 11 - (
+                    7 * (parseInt(jmbg[0]) + parseInt(jmbg[6])) +
+                    6 * (parseInt(jmbg[1]) + parseInt(jmbg[7])) +
+                    5 * (parseInt(jmbg[2]) + parseInt(jmbg[8])) +
+                    4 * (parseInt(jmbg[3]) + parseInt(jmbg[9])) +
+                    3 * (parseInt(jmbg[4]) + parseInt(jmbg[10])) +
+                    2 * (parseInt(jmbg[5]) + parseInt(jmbg[11]))
+                ) % 11;
+
+                const control = controlNumber > 9 ? 0 : controlNumber;
+
+                return jmbg + control.toString();
+            }
+
+            check.addEventListener("click", parseJMBG);
+            generate.addEventListener("click", () => {
+                jmbgHTML.value = generateRandomJMBG();
+                parseJMBG();
+            });
+        })();
+    </script>
+</body>
+</html>

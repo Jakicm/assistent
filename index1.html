@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+   
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-dark" id="sidebar">
+        <div class="sidebar-heading">Admin Dashboard</div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
+                <ul class="collapse list-unstyled" id="dashboard">
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Stats</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item"><a href="#users">Users</a></li>
+            <li class="list-group-item"><a href="#products">Products</a></li>
+            <li class="list-group-item"><a href="#settings">Settings</a></li>
+        </ul>
+    </div>
+    <!-- /#sidebar -->
+
+    <!-- Page Content -->
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="btn btn-dark" id="menu-toggle">Toggle Menu</button>
+        </nav>
+
+        <div class="container-fluid">
+            <!-- Page content goes here -->
+            <h2>Welcome to the Admin Dashboard</h2>
+        </div>
+    </div>
+    <!-- /#content -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Toggle sidebar script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+</body>
+</html>

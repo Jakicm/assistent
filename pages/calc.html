@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/cosmo/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Calculator</title>
+</head>
+
+<style>
+    /* CSS Reset & Global Styles */
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    
+      -webkit-appearance: none;
+    }
+
+    .wrapper {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+    
+      transition: 0.8s all;
+    }
+
+    textarea {
+      grid-column: span 4;
+      padding: 15px;
+      color: rgb(87, 87, 87);
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      background-color: #aaaaaa;    
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      resize: vertical; /* Allow vertical resizing of the textarea */
+    }
+
+    h1 {
+      margin-bottom: 1.5%;
+    
+      font-weight: normal;
+    }
+
+    .container {
+      width: 300px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    input {
+      grid-column: span 4;
+      padding: 15px;
+      color: rgb(87, 87, 87);
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      background-color: #aaaaaa;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 15px;
+      color: rgb(87, 87, 87);
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      background-color: #fff;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+    }
+
+    .double {
+      grid-column: span 2;
+
+    }
+
+    .operator {
+      background-color: #f8f9fa;
+      font-weight: bold;
+    }
+
+    input[type="button"]:hover {
+      background-color: rgb(37, 35, 59);
+      color: #fff;
+    }
+
+    #clear-button {
+      color: #fff;
+      background-color: rgb(255, 25, 25);
+    }
+
+    #history {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 2em;
+     
+    }
+  </style>
+
+<body>
+
+    <div class="wrapper">
+        <h1>Calculator</h1>
+        <div class="container">
+      
+        
+          <input type="text" id="display" class="form-control" disabled>
+          <button class="btn btn-light" onclick="clearDisplay()">C</button>
+          <button class="btn btn-light operator" onclick="appendToDisplay('/')">/</button>
+          <button class="btn btn-light operator" onclick="appendToDisplay('*')">*</button>
+          <button class="btn btn-light operator" onclick="appendToDisplay('-')">-</button>
+          <button class="btn btn-light" onclick="appendToDisplay('7')">7</button>
+          <button class="btn btn-light" onclick="appendToDisplay('8')">8</button>
+          <button class="btn btn-light" onclick="appendToDisplay('9')">9</button>
+          <button class="btn btn-light operator" onclick="appendToDisplay('+')">+</button>
+          <button class="btn btn-light" onclick="appendToDisplay('4')">4</button>
+          <button class="btn btn-light" onclick="appendToDisplay('5')">5</button>
+          <button class="btn btn-light" onclick="appendToDisplay('6')">6</button>
+          <button class="btn btn-light" onclick="appendToDisplay('.')">.</button>
+          <button class="btn btn-light" onclick="appendToDisplay('1')">1</button>
+          <button class="btn btn-light" onclick="appendToDisplay('2')">2</button>
+          <button class="btn btn-light" onclick="appendToDisplay('3')">3</button>
+          <button class="btn btn-light" onclick="appendToDisplay('0')">0</button>
+          <button class="btn btn-light double" onclick="calculate()">=</button>
+          <button id="clear-history-button" class="btn btn-light double" onclick="clearHistory()">Clear History</button>
+          
+    
+        </div>
+        <div id="history"></div>
+      </div>
+
+ 
+      <script src="../scripts/calc.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

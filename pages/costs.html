@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Calculator with Local Storage</title>
+    <!-- Add Bootstrap CSS Link -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-sm mt-5">
+        <h1>Cost Calculator</h1>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="plata">Plata:</label>
+                    <input type="number" class="form-control form-control-sm" id="plata" placeholder="Plata" required>
+                </div>
+            </div>
+
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="kredit">Kredit:</label>
+                    <input type="number" class="form-control form-control-sm" id="kredit" placeholder="Kredit:"
+                        required>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="mts">MTS:</label>
+                    <input type="number" class="form-control form-control-sm" id="mts" placeholder="MTS:" required>
+                </div>
+            </div>
+
+
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="eps">Eps:</label>
+                    <input type="number" class="form-control" id="eps" placeholder="Eps:">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="supern">SuperNova:</label>
+                    <input type="number" class="form-control" id="supern" placeholder="SuperNova:">
+                </div>
+            </div>
+
+
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="Komunalije">Komunalije:</label>
+                    <input type="number" class="form-control" id="kom" placeholder="Komunalije:">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="mtsn">MTS N:</label>
+                    <input type="number" class="form-control" id="mtsn" placeholder="MTS N:">
+                </div>
+            </div>
+     
+
+     
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="gas">Gas:</label>
+                    <input type="number" class="form-control" id="gas" placeholder="Gas:">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="vod">Vodovod:</label>
+                    <input type="number" class="form-control" id="vod" placeholder="Vodovod:">
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="kreditna">Kreditna:</label>
+                    <input type="number" class="form-control" id="kreditna" placeholder="Kreditna:">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="calculateCost()">Računaj</button>
+        <h3 class="mt-3">Ostane:<span id="totalCost"> 0.00</span> Din.</h3>
+    </div>
+
+    <script src="../scripts/costs.js"></script>
+
+    <!-- Add Bootstrap JS and jQuery CDN Links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+</body>
+
+</html>
